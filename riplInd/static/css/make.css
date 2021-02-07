@@ -1,0 +1,72 @@
+        /*COVER*/
+        #cover
+        {
+            background-image:url(../images/mprocess.jpg);
+			height:80%;
+        }
+        /*CUSTOMIZE*/
+		#customize
+		{
+			position:relative;
+		}
+        .closed
+        {
+            position:relative;
+        }
+        .opened
+        {
+            position:absolute;
+            top:0;
+			left:0;
+			right:0;
+        }
+		.closed > img, .opened > img
+		{
+			width:100%;
+		}
+		 .video
+        {
+        width:100%;
+        opacity:0.4;
+        position:relative;
+        z-index:100;
+    }
+        
+        .vid-wrap
+        {
+            line-height: 0;
+            border: solid 1px #333;
+            padding: 1%;
+        }
+        .playpause {
+			background-image:url(../images/pp.png);
+			background-repeat:no-repeat;
+			width:20%;
+			height:20%;
+			position:absolute;
+			left:0%;
+			right:0%;
+			top:0%;
+			bottom:0%;
+			margin:auto;
+			background-size:contain;
+			background-position: center;
+}
+        /*section end*/
+        .slider-p
+        {
+            margin: 0;
+        }
+        .slider-c
+        {
+            float: left;
+        }
+		#spares
+        {
+            background:#e0e0e0;
+        }
+	
+        .guide
+        {
+            background: #333;
+        }

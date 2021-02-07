@@ -1,0 +1,113 @@
+#cover
+{
+	height:80%;
+}
+#flexilist
+{
+	display:block;
+	text-align:center;
+}
+#flexilist > li
+{
+	display:inline-block;
+	width:180px;
+	margin:10px;
+	float:none;
+}
+.pro-1, .pro-2, .pro-3
+{
+	height: 100vh;
+	background-attachment: fixed;
+    	background-position: 0% center;
+    	background-repeat: no-repeat;
+	background-size:100%;
+}
+@media (min-width:992px)
+{
+	.pro-1, .pro-2, .pro-3
+	{
+		background-size:50%;
+	}
+}
+
+.pro-1
+{
+background-image:url(../images/03.png);
+}
+.pro-2
+{
+background-image:url(../images/03-1.png);
+
+}
+.pro-3
+{
+background-image:url(../images/03.png);
+
+}
+.item-desc
+{
+	max-width:400px;
+	margin:0 auto;
+}
+.one
+{
+	background:wheat;
+}
+.two
+{
+	background:#f2f2f2;
+}
+.three
+{
+	background:wheat;
+}
+#intro
+{
+	background:#f2f2f2;
+}
+#color [class*="col-"] {
+    padding: 0px;
+}
+#dimension
+{
+	background-image:url(../images/dim-bg.png);
+	background-color:#f2f2f2;
+	background-repeat: no-repeat;
+	background-size:contain;
+	background-position:0 50%;
+}
+#material
+{
+	background-image:url(../images/mat-bg.png);
+	background-repeat: no-repeat;
+	background-position:0 50%;
+	background-color:white;
+}
+#accessory
+{
+	background-color:#f2f2f2;
+	background-image:url(../images/acc-bg.png);
+	background-repeat: no-repeat;
+	background-position:0 50%;
+	background-size:contain;
+}
+#matslider > .subtie
+{
+	max-width:800px;
+}
+.accwrap > img
+{
+	width:250px;
+	height:250px;
+}
+.fbshare
+{
+	position:fixed;
+	z-index:9999;
+	bottom:40px;
+	right:80px;
+}
+.THEATRE:nth-last-child(1)
+{
+	border-bottom:solid 1px black;
+}

@@ -1,0 +1,26 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}TITLE{% endblock %}
+
+<!--About Styles-->
+{% block styles %}
+<link href="{% static 'css/child.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+{% endblock %}
+
+{% block head %} 
+    
+{% endblock %}
+
+<!--BODY-->
+{% block body %} 
+
+{% endblock %}

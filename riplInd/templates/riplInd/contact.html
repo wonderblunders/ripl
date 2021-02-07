@@ -1,0 +1,89 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}About Us{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/contact.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}
+
+{% block head %} 
+<script>
+$( document ).ready(function() {
+$("").animate({width:'toggle'},1000);
+});
+</script>
+{% endblock %}
+
+<!--BODY-->	
+{% block body %} 
+	{% block tablist %}		<section id="tabs">
+    <div class="container-fluid">
+			<ul class="tablist">
+			<li class="col-xs-4"><a href="contact">CONTACT US</li>
+			<li class="col-xs-4"><a href="collection">COLLECTION</a></li>
+			<li class="col-xs-4"><a href="fabric">FABRIC GUIDE</a></li>
+			</ul>
+    </div>
+	</section> 
+	{% endblock %}
+<div class="container-fluid center" style="color:red;margin-top:20px"><h6>{{success}}</h6></div>
+<section id="intro" class="spacer-both">
+    <div class="container" id="intro-wrap">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 spacer-bottom title center"><h3>GET IN TOUCH</h3></div>
+            <div class="col-sm-10 col-sm-offset-1 center">
+                <p>Fill out the form below or you can also call us Toll-free at</p><h2>1800-123-1234</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contactform">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">
+		<div class="col-md-5 col-md-offset-1 center">
+		<div class="row">
+		<form method="post">{% csrf_token %}
+		<div class="col-xs-12 dropdown">
+		{{form.reason}}
+		</div>
+		<div class="col-xs-6">{{ form.fname }}</div>
+		<div class="col-xs-6">{{ form.lname }}</div>
+		<div class="col-xs-12">{{ form.phone }}</div>
+		<div class="col-xs-12">{{ form.email }}</div>
+		<div class="col-md-6">{{ form.occupation }}</div>
+		<div class="col-md-6 dropdown">
+		<select class="country" name="country" onChange="load_state()">
+		{% for c in countries %}
+		<option id="{{c.id}}">{{ c.name }}</option>
+		{% endfor %}
+		</select>
+		</div>
+		<div class="col-md-12">{{ form.message }}</div>
+        <input type="submit" class="btn btn-info" value="Submit Button">
+
+        </form>
+		</div>
+		</div>
+		<div class="col-md-5">
+		<div class="col-xs-12">
+		<div class="faq-wrap">
+		<div class="faq-item active"><div class="query">CORPORATE OFFICE<span class="toggle"><div class="togglewrap rotate"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1752.990254705654!2d77.20501327879764!3d28.510234123398543!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1e795555555%3A0xcb129dda974c187!2sRecliners+India+Private+Limited!5e0!3m2!1sen!2sin!4v1418624226684" width="100%" height="350" frameborder="0" style="border:0"></iframe></div></div>
+		<div class="faq-item"><div class="query">SOUTH INDIA<span class="toggle"><div class="togglewrap"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15553.28414438153!2d77.6992631!3d12.9512974!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x634e57949479af2!2sRecliners+India+Pvt.+Ltd.!5e0!3m2!1sen!2sin!4v1466744982580" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen=""></iframe></div></div>
+		</div>
+		</div>
+		</div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}About Us{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/faq.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+<script src="{% static 'js/faq.js' %}"></script>
+{% endblock %}
+
+{% block head %} 
+<script>
+$( document ).ready(function() {
+$("").animate({width:'toggle'},1000);
+});
+</script>
+{% endblock %}
+
+<!--BODY-->	
+{% block body %} 
+	{% block tablist %}	<section id="tabs">
+    <div class="container-fluid">
+			<ul class="tablist">
+			<li class="col-xs-4"><a href="about">ABOUT US</li>
+			<li class="col-xs-4"><a href="make">MANUFACTURING</a></li>
+			<li class="col-xs-4"><a href="faq">FAQ</a></li>
+			</ul>
+    </div>
+	</section> 
+	{% endblock %}
+
+<section>
+    <div class="container" class="spacer-both">
+        <div class="row">
+		<div class="col-xs-12">
+		
+		<div class="faq-wrap">
+		{% for f in faq %}
+		<div class="faq-item"><div class="query center">{{f.query}}<span class="toggle"><div class="togglewrap"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		{{f.answer}}
+		</div>
+		</div>
+		{% endfor %}	
+		</div>
+		</div>
+		</div>
+		</div>
+</section>
+{% endblock %}

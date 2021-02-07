@@ -1,0 +1,184 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}{{product.title}}{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/product.css' %}" rel="stylesheet" type="text/css">
+<style>
+#cover
+{
+    background-image:url({{product.cover.url}});
+}
+</style>
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+<script src="{% static 'js/product.js' %}"></script>
+{% endblock %}
+
+{% block head %} 
+<script>
+$( document ).ready(function() {
+$("").animate({width:'toggle'},1000);
+});
+</script>
+{% endblock %}
+
+<!--BODY-->	
+{% block body %} 
+{% block covertext %}
+{% endblock %}
+<section id="intro" class="spacer-both">
+    <div class="container" id="intro-wrap">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 spacer-bottom title center"><h4><strong>{{ product.title }}</strong></h4></div>
+            <div class="col-md-6 justify">
+                <p> {{ product.desc }} </p>
+				<div class="row center">
+				{% for f in product.features.all %}
+				 <div class="col-xs-3"><img src="{{ f.image.url }}"><p>{{ f.title }}</p></div>
+				{% endfor %}
+				 </div>
+            </div>
+			<div class="col-md-6"><img src="{{product.image.url}}"></div>
+			<iframe src="https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2F127.0.0.1%3A8000%2Fproduct&layout=button&mobile_iframe=true&width=58&height=20&appId" width="58" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" class="fbshare"></iframe>
+        </div>
+    </div>
+</section>
+
+<section id="function">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">
+		<div class="viewport">
+		<ul id="flexilist">
+		{% for f in product.function.all %}
+		<li><img src="{{ f.image.url }}"> <p>{{ f.title }}</p></li>
+		{% endfor %}
+		</ul>
+		</div>
+		<div class="col-xs-12">
+		</div>
+		</div>
+	</div>
+</section>
+
+<section id="dimension" class="spacer-both">
+    <div class="container" class="spacer-both">
+        <div class="row center">
+		{% for f in product.dimension.all %}
+		<div class="col-xs-6 col-md-3"><img src="{{ f.image.url }}"><p>{{ f.title }}</p></div>
+		{% endfor %}
+	</div>
+</section>
+
+<section>
+    <div class="container center" class="spacer-both">
+        <div class="row">
+<ul class="center">
+{% regroup material by upholstery as uph %}
+
+<li>
+<a src=""><img src="{{ m.image.url }}"></a>
+<p>
+{{ uph.title }}
+{{ m.family }} {{ m.upholstery }}
+</p>
+{% regroup m.family.list by m.upholstery.list as family %}
+
+</li>
+
+</ul>
+</div>
+</div>
+</section>
+
+<section id="material" class="spacer-both sawtooth">
+    <div class="container center" class="spacer-both">
+        <div class="row">
+	<div id="matslider" class="slider">
+	<ul id="matdesc" class="sublist spacer-bottom">
+	<li><img src="{% static 'images/inaction1.jpg' %}"></li>
+	<li><img src="{% static 'images/inaction2.jpg' %}"></li>
+	<li><img src="{% static 'images/inaction1.jpg' %}"></li>
+	<li><img src="{% static 'images/inaction2.jpg' %}"></li>
+	<li><img src="{% static 'images/inaction2.jpg' %}"></li>
+	<li><img src="{% static 'images/inaction2.jpg' %}"></li>
+	<li><img src="{% static 'images/inaction2.jpg' %}"></li>
+    </ul>
+	<ul id="matlist" class="list">
+	<li><img src="{% static 'images/inaction1.jpg' %}">LEATHER</li>
+	<li><img src="{% static 'images/inaction2.jpg' %}">BALTIC</li>
+	<li><img src="{% static 'images/inaction1.jpg' %}">SUEDE</li>
+	<li><img src="{% static 'images/inaction2.jpg' %}">ZICO</li>
+	<li><img src="{% static 'images/inaction2.jpg' %}">LAMINATION</li>
+	<li><img src="{% static 'images/inaction2.jpg' %}">MOLPHINO</li>
+	<li><img src="{% static 'images/inaction2.jpg' %}">VINTAGE</li>
+	</ul>
+		</div>
+		</div>
+		</div>
+</section>
+
+<section id="color">
+    <div class="container-fluid center one" class="spacer-both">
+        <div class="row flex-md">
+		<div class="col-xs-12 col-md-6"><div class=" pro-1"></div>	</div>
+		<div class="col-xs-12 col-md-6"> <div class="item-desc">
+		<h4 class="title"><strong>Manufacturing Process</strong></h4>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6>
+</div></div>
+		</div>
+		</div>
+    <div class="container-fluid center two" class="spacer-both">
+        <div class="row flex-md">
+		<div class="col-xs-12 col-md-6">		<div class=" pro-2"></div></div>
+		<div class="col-xs-12 col-md-6"> <div class="item-desc">
+		<h4 class="title"><strong>Manufacturing Process</strong></h4>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6>
+</div></div>
+		</div>
+		</div>
+    <div class="container-fluid center three" class="spacer-both">
+        <div class="row flex-md">
+		<div class="col-xs-12 col-md-6">
+		<div class="pro-3"></div></div>
+		<div class="col-xs-12 col-md-6"> <div class="item-desc">
+		<h4 class="title"><strong>Manufacturing Process</strong></h4>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6>
+</div></div>
+		</div>
+		</div>
+</section>
+
+<section>
+    <div class="container center spacer-both">
+	<div class="faq-wrap center">
+		{% for f in product.faq.all %}
+		<div class="faq-item THEATRE">
+		<div class="query">{{ f.question }}<span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		{{ f.answer }}
+		</div>
+		</div>
+		{% endfor %}
+	</div>
+	</div>
+</section>
+		
+<section id="accessory">
+    <div class="container-fluid center" class="spacer-both">
+        <div class="row">
+		<div class="slider center" id="accslider"> 
+		<ul id="acclist" class="list">
+		{% for f in product.accessory.all %}
+		<li><div class="accwrap"><img src="{{ f.image.url }}"> <p>{{ f.title }}</p></li>
+		{% endfor %}
+		</ul>
+		</div>
+		</div>
+		</div>
+</section>
+{% endblock %}

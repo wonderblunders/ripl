@@ -1,0 +1,236 @@
+
+  /* Small Devices, Tablets */
+        
+        @media (min-width: 768px) {}
+        /* Medium Devices, Desktops */
+        
+        @media (min-width: 992px) {
+
+        }
+        /* Large Devices, Wide Screens */
+        
+        @media (min-width: 1200px) {}
+        /* Very Large Devices, Wide Screens */
+        
+        @media (min-width: 1600px) {}
+		
+        .center-block {
+            margin: 0 auto;
+        }
+        /*SPARES*/
+        #spares
+        {
+            background:#ccc;
+        }
+        
+        /*SCRAPBOOK*/
+        .scrap
+		{
+            height:0;
+            padding-bottom:112%;
+            position:relative;
+        }
+        .scrap > div
+        {
+            position:absolute;
+        }
+        .scrap-img
+        {
+            top:0;
+            height:30%;
+        }
+
+        .slottext:before
+        {
+            content:"WINTERS";
+            position:absolute;
+            opacity: 0;
+			top:0;
+			left:0;
+            animation: slot 5s infinite;
+        }
+
+            .slottext:after
+		{
+            content:"SUMMER";
+            position:absolute;
+            opacity: 0;
+			top:0;
+			left:0;
+            animation: 5s slot 2.5s infinite;
+        }
+
+        @keyframes slot
+        {
+            0% 
+            {
+                transform: translate(0,100%);
+                opacity: 0;
+            }
+            10%, 50%
+			{
+                transform: translate(0,0%);
+                opacity: 1;
+            }
+            60%
+			{
+                opacity: 0;
+            }
+            60%,100%
+			{
+                transform: translate(0,-100%);
+            }
+        }
+		#about
+		{
+			background:#f2f2f2;
+		}
+		#prod-list > li
+		{
+			padding:20px;
+			font-size:10px;
+		}
+		#prod-list > li a:hover
+		{
+			transform:translate3d(0,-10px,0);
+		}
+		#abt-desc > li
+		{
+			background:white;
+			padding:1%;
+		}
+		#abt-list
+		{
+			margin-bottom:20px;
+		}
+		.active > .abt-item
+		{
+			transform:scale(1.2);
+			background:white;
+			color:black;
+		}
+
+		.abt-item
+		{
+			background:#222;
+			color:white;
+			margin: 0 auto;
+			width:150px;
+			height:150px;
+			border:solid 2px #555;
+			border-radius:50%;
+			padding:20px;
+			line-height:20px;
+			transition:all 0.2s ease-in;
+		}
+		.abt-item:hover
+		{
+			background:white;
+			color:black;
+		}
+		.abt-item > img
+		{
+			width:73px;
+			height:74px;
+			display:block;
+			margin:0 auto;
+			object-fit:none;
+		}
+		.abt-item > .a
+		{
+			object-position:0 0;
+		}
+		.abt-item > .a:hover
+		{
+			object-position:0 -74px;
+		}
+		.active > .abt-item > .a
+		{
+			object-position:0 -74px;
+		}
+		.abt-item > .b
+		{
+			object-position:-73px 0;
+		}
+		.abt-item > .b:hover
+		{
+			object-position:-73px -74px;
+		}
+		.active > .abt-item > .b
+		{
+			object-position:-0 -74px;
+		}
+		#about .tie
+		{
+			position:relative;
+		}
+		#usp
+		{
+			background: url(../images/rain.jpg);
+			background-size:cover;
+		}
+		#cover
+		{
+			background-image:url(../images/ab.jpg);
+			height:100%;
+		}
+		
+	#testimonial
+	{
+		background:#e0e0e0;
+	}
+
+		#sign > .active
+		{
+			border:1px solid black;
+		}
+				.guestimg
+		{
+			width:150px;
+			height:150px;
+			border-radius:50%;
+			box-shadow: 0 3px 6px rgba(0,0,0,.7);
+			margin-bottom:20px;
+		}
+		#parallax
+		{
+			background:url(../images/downloads-bg.jpg) left top fixed / cover no-repeat;
+			color:white;
+			line-height:40px;
+		}
+		#events .row > div
+		{
+			background:oldlace;
+			color:teal;
+		}
+#contect-card input
+{
+border-color:white;
+}
+html {
+    -webkit-transition: background-color 1s;
+    transition: background-color 1s;
+}
+html, body {
+    min-height: 100%; 
+}
+html.loading {
+    background: whitesmoke url(../images/loading.gif) center center / 10% no-repeat;
+    -webkit-transition: background-color 0;
+    transition: background-color 0;
+position:fixed;
+top:0;
+right:0;
+bottom:0;
+}
+body {
+    -webkit-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
+}
+html.loading body {
+    opacity: 0;
+	overflow:hidden;
+	
+    -webkit-transition: opacity 0;
+    transition: opacity 0;
+}

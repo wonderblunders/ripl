@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang = "en">
+   
+<head>
+    
+	<meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      
+    <title></title>
+	<link href = "css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="js/jquery.min.js"></script>
+  <script> 
+ 		var headerstrip = $(".headerstrip").outerHeight();
+		var scrolled, ratio, width, margin;
+		
+		setInterval(function(){
+			var active = $(".slide.active");
+			var nextItem = active.next();
+			if ( nextItem.length ) 
+		{
+				currentItem = nextItem.addClass('active');
+				active.removeClass('active');
+		} 
+			else 
+		{
+			currentItem = $(".slide").first().addClass('active');
+			active.removeClass('active');
+		}
+
+		}, 2000);
+		
+		
+  $(document).ready(function() {
+  function count(counter, end, timeLimit, elemClass)
+  {
+	var interval = timeLimit/end;
+	setInterval(function() {
+	if (counter < end)
+		counter++;
+		  $("."+elemClass).text(counter);
+	},interval);
+  }
+  		count(0, 100, 1000, "counter");
+         });
+
+
+	$(window).scroll(function() {
+	scrolled = $(window).scrollTop();
+    $(".header").animate({top: 0},200);
+
+});
+	
+$( window ).resize(function() {
+
+});
+  </script>
+      <!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+	<style>
+	@import 'https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web';
+
+	@font-face 
+{
+    font-family: "recliners";
+    src: url(fonts/proximanova-regular-webfont.woff) format('woff');
+}
+
+.proxima
+{
+	font-family: recliners, Arial, Helvetica, sans-serif;
+}
+.georgia
+{
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+  *
+{
+	box-sizing:border-box;
+	padding:0;
+	margin:0;
+	-webkit-font-smoothing: subpixel-antialiased;
+	line-height: 1.6;
+	letter-spacing:1px;
+	font-family: 'Titillium Web', sans-serif;
+}
+	img
+{
+	max-width:100%;
+	height:auto;
+}
+	
+	.parent 
+{
+	display: flex;
+	flex:1;
+	justify-content: center;
+	align-items: center;
+}
+	.container-fluid
+{
+	max-width:1600px;
+	padding-left:0 ;
+	padding-right:0 ;
+}
+	.center
+{
+	text-align:center;
+}	
+	.left
+{
+	text-align:left;
+}	
+	.right
+{
+	text-align:right;
+}
+	ul
+{
+	margin:0px !important;
+}
+
+	.spacer
+{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+	
+	.headerstrip
+{
+	background:rgba(0,0,0,1);
+	color:#fff;
+	height:auto;
+}
+	.search
+{
+	width:200px;
+	padding-left: 10px;
+	color: #fff;
+	border-top:0px solid red;
+	border-left:0px solid red;
+	border-right:0px solid red;
+	border-bottom:1px solid white;
+	background-color:rgba(0,0,0,0);
+}
+
+input[type=text] {
+  -webkit-transition: width .35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+input[type=text]:focus {
+	outline:none;
+	width:100%;
+}
+
+
+.header
+{
+	background:#fff;
+	color:#bbb;
+	z-index:9998;
+	box-shadow: 1px 1px 10px #333;
+	position: fixed;
+	width:100%;
+}
+
+.menu
+{
+	list-style-type:none;
+	text-transform:uppercase;
+}
+
+.menu li
+{
+	display:inline;
+	margin:0 1%;
+	line-height: 70px;
+	font-weight:700;
+    font-size: 14px;
+}
+
+.ham
+{
+	display:none;
+}
+
+a
+{
+	text-decoration:none;
+	transition: all 0.2s linear;
+	color:brown ;
+}
+
+a:hover
+{
+	color:blue;
+	font-size:1.2em;
+	text-decoration: none;  
+}
+
+
+.slideshow
+{
+	position:relative;
+	height:0;
+	padding-bottom:60%;
+}
+.slide
+{
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    background-size: cover;
+	background-position: center 0%;
+    background-repeat: no-repeat;
+	-webkit-filter:brightness(70%);
+	display:none;
+}
+.active
+{
+	display:block;
+	z-index:10;
+}
+.slide-1
+{
+	background-image: url("ab.jpg");
+}
+.slide-2
+{
+	background-image: url("bg2.jpg");
+}
+.slide-3
+{
+	background-image: url("ab.jpg");
+}
+.slide-4
+{
+	background-image: url("bg.jpg");
+}
+.chair
+{
+	position:absolute;
+	top: 50%;
+	z-index:20;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 70%;
+	height: 100%;
+	background: url(front-chair.png)  center center/contain no-repeat;
+}
+.about
+{
+	padding:8% 0;
+}
+/* Very Large Devices, Wide Screens */
+@media only screen and (max-width : 1600px) {
+
+}
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+.menu
+{
+	display:none;
+}
+.ham
+{
+	display:block;
+}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+	</style>
+
+</head>
+
+<body>
+<div class="container-fluid headerstrip spacer">
+<div class="container">
+<div class="row parent">
+<div class="col-xs-12 col-sm-6 left">
+<h6 class="fa fa-phone fa-lg mob">
+1800-123-1234</h6>
+</div>
+<div class="col-xs-12 col-sm-6 right">
+<form>
+<input type="text" class="search" placeholder="Search" >
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<div class="container-fluid header spacer">
+<div class="container">
+<div class="row parent">
+<div class="col-xs-4 left">
+<a href="index.html"><img src="log.png" width="120px" height="auto"></a>
+
+</div>
+<div class="col-xs-8 right">
+<a href=""><i class="fa fa-bars fa-lg ham"></i></a>
+<ul class="menu">
+
+<li><a href="">About</a></li>
+<li><a href="">Corporate</a></li>
+<li><a href="">Products</a></li>
+<li><a href="">Support</a></li>
+<li><a href="">Contact</a></li>
+
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="container-fluid slideshow">
+<div class="row">
+<div>
+<div class="slide slide-1 active">
+</div>
+<div class="slide slide-2">
+</div>
+<div class="slide slide-3">
+</div>
+<div class="slide slide-4">
+</div>
+</div>
+<div class="chair">
+</div>
+</div>
+</div>
+
+
+<!-- Who We Are -->
+
+
+<div class="container about">
+<div class="row">
+<h1 class="center">WHO WE ARE</h1>
+<p class="center">lorem ipsum ipsum dolor lip lipi</p>
+<div class="parent">
+<div class="col-md-4">
+<div class="row parent">
+<div class="col-xs-3 center">
+<i class="fa fa-industry fa-3x feature">
+</i>
+</div>
+<div class="col-md-9 col-xs-9">
+<h4 class="recliners">Professional</h4>
+<p> Lorem ipsum dolor sit amet, conse
+								adipiscing elit, sed diam noummy 
+								euismod tincidunt </p>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="row parent">
+<div class="col-xs-3 center">
+<i class="fa fa-industry fa-3x feature">
+</i>
+</div>
+<div class="col-md-9 col-xs-9">
+<h4>Professional</h4>
+<p> Lorem ipsum dolor sit amet, conse
+								adipiscing elit, sed diam noummy 
+								euismod tincidunt </p>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="row parent">
+<div class="col-xs-3 center">
+<i class="fa fa-industry fa-3x feature">
+</i>
+</div>
+<div class="col-md-9 col-xs-9">
+<h4>Professional</h4>
+<p> Lorem ipsum dolor sit amet, conse
+								adipiscing elit, sed diam noummy 
+								euismod tincidunt </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- What We Do -->
+
+<div class="container services">
+<h1 class="center">WHAT WE DO</h1>
+<p class="center">lorem ipsum ipsum dolor lip lipi</p>
+<div class="row parent">
+<div class="col-sm-4 col-xs-12 ">
+<img src="cp-services-1.jpg">
+<div >
+
+<div style="float:left">
+01
+</div>
+
+<div style="float:left">
+<div>LOREM IPSUM
+</div>
+<div>lorem lorem john doe ipsum
+</div>
+</div>
+
+</div>
+<p>lorem lorem ipsum ipsum</p>
+</div>
+
+<div class="col-sm-4 col-xs-12 ">
+<img src="cp-services-1.jpg">
+<div >
+
+<div style="float:left">
+01
+</div>
+
+<div style="float:left">
+<div>LOREM IPSUM
+</div>
+<div>lorem lorem john doe ipsum
+</div>
+</div>
+
+</div>
+<p>lorem lorem ipsum ipsum</p>
+</div>
+
+<div class="col-sm-4 col-xs-12 ">
+<img src="cp-services-1.jpg">
+<div >
+
+<div style="float:left">
+01
+</div>
+
+<div style="float:left">
+<div>LOREM IPSUM
+</div>
+<div>lorem lorem john doe ipsum
+</div>
+</div>
+
+</div>
+<p>lorem lorem ipsum ipsum</p>
+</div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>

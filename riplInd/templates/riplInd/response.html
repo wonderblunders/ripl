@@ -1,0 +1,32 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}About Us{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/response.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+{% endblock %}
+
+{% block head %} 
+<script>
+$( document ).ready(function() {
+$("").animate({width:'toggle'},1000);
+});
+</script>
+{% endblock %}
+
+<!--BODY-->	
+{% block covertext %}
+
+<div id="covertext">
+<div class="slottext" id="slot-1"></div>
+<h3><strong>{{success}}</strong></h3></div>
+{% endblock %}
+{% block body %} 
+
+{% endblock %}

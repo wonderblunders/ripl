@@ -1,0 +1,20 @@
+        #cover
+        {
+            background-image:url(../images/abc.jpg);
+			height:80%;
+        }
+.right
+{
+	text-align:right;
+}
+#guide
+{
+	background:#f2f2f2;
+}
+.query
+{
+	height:40px;
+	line-height:40px;
+    border-left: solid 1px transparent;
+    border-right: solid 1px transparent;
+}

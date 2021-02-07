@@ -1,0 +1,207 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}Home{% endblock %}{% block styles %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/index.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+		$(".callme").click("Thanks. Your request is submitted on our server.");
+    });
+</script>
+{% endblock %}
+
+{% block covertext %}
+
+<div id="covertext">
+<div class="slottext" id="slot-1"></div>
+<h1><strong>LOREM IPSUM</strong></h1></div>
+{% endblock %}
+{% block body %}
+
+<section id="about" class="spacer-both">
+<div class="container center">
+	<h3 class="title"><strong>About Us</strong></h3>~~~~~~~~~~
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></li>
+	<div class="slider" id="abtslider">
+	<ul id="abt-list" class="list">
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="a" alt="">ESTD. 1996</div></li>
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="b" alt="">PAN INDIA</div></li>
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="a" alt="">ISO CERTIFIED</div></li>
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="b" alt="">100+ PRODUCTS</div></li>
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="a" alt="">CUSTOM DESIGN</div></li>
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="b" alt="">THE WAY</div></li>
+	<li><div class="abt-item"><img src="{% static 'images/sprite.png' %}" class="a" alt="">THE WAY</div></li>
+	</ul>
+	<ul id="abt-desc" class="sublist spacer-bottom">
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+	<li><h5><strong>Lorem Ipsum</strong></h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Contrary to popular belief, Lorem Ipsum is not simply random text.</p></li>
+    </ul>
+</div>
+        </div>
+</section>
+
+<section id="products" class="spacer-both animate" data-anim-type="slideinleft">
+    <div class="container center">
+	<h3 class="title"><strong>Our Collection</strong></h3>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></li>
+	<div class="slider center" id="proslider"> 
+		<ul id="prod-list" class="list">
+		{% for c in category %}
+		<li data-item-id="{{ c.category.id }}"><a href="collection?id={{c.category.id}}"><img src="{{ c.image.url }}"><p>{{ c.category.title }}</p></a></li>
+		{% endfor %}
+		</ul>
+	</div>
+		<div class="link"><a href="collection">View Entire Collection</a>
+        </div>
+</section>
+
+<section id="spares" class="spacer-both">
+    <div class="container center">
+        <div class="row">
+        <div class="col-xs-12">
+            <img src="{% static 'images/kit.jpg' %}" alt="recliner spares">
+	<h3>Quality Spares</h3>
+	<div class="link"><a href=make">Check Details</a>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section id="clients" class="spacer-both">
+    <div class="container">
+        <div class="row center">
+	<h3 class="title"><strong>Our Clients</strong></h3>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></li>
+        <div class="col-xs-12 hidden-xs"><img src="{% static 'images/clients.png' %}" alt="clients">    </div>
+        <div class="col-xs-12 hidden-sm hidden-md hidden-lg"><img src="{% static 'images/clients.png' %}" alt="clients">
+	</div>
+	</div>
+	</div>
+</section>
+<!--
+<section id="usp" class="vwrap">
+    <div class="container-fluid">
+        <div class="row center" id="uspslide">
+		    <div class="col-md-6 right-md">
+			<ul class="target">
+			<li><img src="{% static 'images/pro-cat-1.jpg' %}"></li>
+			<li>website</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			</ul></div>
+            <div class="col-md-6">
+			<ul class="vlist source tablist" id="vslider">
+			<li class="col-xs-4 col-md-12">A</li>
+			<li class="col-xs-4 col-md-12">6</li>
+			<li class="col-xs-4 col-md-12">7</li>
+			<li class="col-xs-4 col-md-12">8</li>
+			<li class="col-xs-4 col-md-12">0</li>
+			<li class="col-xs-4 col-md-12">11</li>
+			</ul>
+			</div>
+    </div>
+    </div>
+</section>
+-->
+
+<section id="testimonial">
+    <div class="container spacer-both">
+        <div class="row">
+		<div class="col-xs-12">
+				<div id="signslider" class="slider">
+	        <ul id="signdesc" class="sublist center">
+			<li><div class="col-xs-12"><img src="{% static 'images/scrap-img.png' %}" class="guestimg"><h4>Mr. Kumaran R.</h4><p>Gifted one Recliner to my parents and today ur team installed and did demo as well. The highlight it is at Thanjavur 350 kms from Chennai while order placed at delhi. The commitment and courtesy displayed by your exec Deepak from delhi Kirti Nagar  showroom is commendable as this is a Repeat order and entire deal was over by what's up and mobile. I am a happy owner of 1+2+3 seater at Gurgaon and now my parents are Happy. Definitely repeat orders will come from my native. Kudos to Recliners team,  right from Deepak to factory personal to installation team.</p></div></li>
+			<li><div class="col-xs-12"><img src="{% static 'images/scrap-img.png' %}" class="guestimg"><h4>Dr. Vijay Agarwal</h4><p>As l purchased a recliner sofa set from Recliners lndia Ltd.that too after surveying other outlets I Delhi NCR I found that the product of Recliners lndia Kirti Nagar was was most cost effective and excellent in quality. Moreover dealing of its sales person especially Mr.Sudhhir was the main guiding force to finalize my deal with Recliners lndia Kirti Nagar only. Coming to after sales service l got some problem in the motor of the Recliner sofa which was promptly attended and rectified to my utmost satisfaction. I will highly recommend my all contacts to do dealing with Recliners lndia only.</p></div></li>
+			<li><div class="col-xs-12"><img src="{% static 'images/scrap-img.png' %}" class="guestimg"><h4>Mr. Sandeep Aggarwal</h4><p>I have placed order for 4 recliners & 3 fixed sofa seats from your showroom. I was amazed & excited to see ur recliners. Mr. Sumit & Dileep both are very much technically sound & only in my first visit they convinced me about the quality of the product. They explained me each and everything by taking my room dimensions & I was happy by there suggestions & remarks. But I am writing this mail just because I want that company should know my requirements & fulfilled it as both Mr. Sumit & Mr. Dileep has assured me. This is my first order & if i get what I have been promised than definitely I will provide u more of these orders for my brothers & friends</p></div></li>
+            </ul>
+<ul id="sign" class="list">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ul>
+    </div>
+    </div>
+    </div>
+</section>
+
+<section id="events" class="spacer-both">
+    <div class="container center">
+<!--	<h3 class="title"><strong>Our Blog</strong></h3>
+	<h6 class="subtitle">simply dummy text of the printing</h6></li> -->
+	<div class="row flex-md">
+	<div class="col-md-6 nopadding"><img src="{% static 'images/product.jpg' %}"></div>
+	<div class="col-md-6"><h4><strong>UPCOMING EVENT</strong></h4><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+	</div>	
+	<div class="row flex-md">
+	<div class="col-md-6 col-md-push-6 nopadding"><img src="{% static 'images/product.jpg' %}"></div>
+	<div class="col-md-6 col-md-pull-6"><h4><strong>BLOG POST</strong></h4><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div>
+
+	</div>	
+	</div>
+</section>
+
+<section id="parallax" class="spacer-both">
+    <div class="container">
+		<div class="row center">
+		<div class="col-xs-6 col-md-3"><a href="" class="inkpot"><img src="{% static 'images/dl-1.png' %}"><br>PRODUCT BROCHURE</a></div>
+		<div class="col-xs-6 col-md-3"><a href="" class="inkpot"><img src="{% static 'images/dl-1.png' %}"><br>INSTALLATION MANUAL</a></div>
+		<div class="col-xs-6 col-md-3"><a href="" class="inkpot"><img src="{% static 'images/dl-1.png' %}"><br>ACCESSORY MANUAL</a></div>
+		<div class="col-xs-6 col-md-3"><a href="" class="inkpot"><img src="{% static 'images/dl-1.png' %}"><br>MAGAZINE</a></div>
+		</div>
+		<section id="contact-card" class="spacer-both">
+    <div class="container">
+        <div class="row center">
+        <div class="col-md-6 whitetext">
+		<form method="post" action="callme">{% csrf_token %}
+           <div class="col-xs-12"><button type="submit" name="callme" class="callme"></button>
+            {{ form_call.number }}
+			</div>
+            </form>
+        </div>
+        <div class="col-md-6 whitetext">
+		<form method="post" action="callme">{% csrf_token %}
+           <div class="col-xs-12"><button type="submit" name="subscribe" class="callme"></button>
+            {{ form_subscribe.email }}
+			</div>
+            </form>
+        </div>
+        </div>
+    </div>
+</section>
+		</div>
+</section>
+
+
+
+<!-- 
+<section id="">
+    <div class="container">
+	<div class="row">
+	<div class="col-xs-12"><img src="{% static 'images/f.jpg' %}"><a href="" id="overlay-1"><img src="{% static 'images/minus.png' %}"></a></div>
+	</div>
+	</div>
+	</section>
+	-->
+{% endblock %}

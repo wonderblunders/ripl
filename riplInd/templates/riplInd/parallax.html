@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang = "en">
+   
+<head>
+    
+	<meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE = edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+      
+    <title></title>
+	<link href = "css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<script src="js/jquery.min.js"></script>
+  <script> 
+
+ 		var headerstrip = $(".headerstrip").outerHeight();
+		var scrolled, ratio, width, margin;
+		
+		setInterval(function(){
+			var active = $(".slide.active");
+			var nextItem = active.next();
+			if ( nextItem.length ) 
+		{
+				currentItem = nextItem.addClass('active');
+				active.removeClass('active');
+		} 
+			else 
+		{
+			currentItem = $(".slide").first().addClass('active');
+			active.removeClass('active');
+		}
+
+		}, 2000);
+		
+		
+	$(document).ready(function() {
+	
+
+ $(".slideshow").mousemove(function(event){
+ 	var x = ($(".slideshow").width()/2)-event.pageX;
+ 	var y = ($(".slideshow").height()/2)-event.pageY;
+  $(".chair").css( "left", 0.08*x);    
+  $( ".chair" ).css( "top", 50+0.004*y+"%");    
+  });
+    $(function() {
+
+   $("body").mousewheel(function(event, delta) {
+
+      this.scrollLeft -= (delta * 30);
+    
+      event.preventDefault();
+
+   });
+
+});
+         });
+
+	$(window).scroll(function() {
+		scrolled = $(window).scrollTop();
+		$(".header").animate({top: 0},200);
+		$(".headerstrip").hide();
+});
+	
+$( window ).resize(function() {
+
+});
+
+
+  </script>
+      <!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+	  
+	<style>
+	@import 'https://fonts.googleapis.com/css?family=Open+Sans|Titillium+Web';
+@import 'https://fonts.googleapis.com/css?family=Montserrat:400,700';
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-style:  normal;
+  font-weight: 400;
+  src: url(fonts/proximanova-regular-webfont.woff) format('woff');
+}
+
+
+.proxima
+{
+	font-family: 'Montserrat', sans-serif;
+
+}
+  *
+{
+	box-sizing:border-box;
+	padding:0;
+	margin:0;
+	-webkit-font-smoothing: subpixel-antialiased;
+	letter-spacing:1px;
+}
+body
+{
+	background:#000 url(bck.png);
+}
+	img
+{
+	max-width:100%;
+	height:auto;
+}
+	
+	.parent 
+{
+	display: flex;
+	flex:1;
+	justify-content: center;
+	align-items: center;
+}
+
+	.center
+{
+	text-align:center;
+}	
+	.left
+{
+	text-align:left;
+}	
+	.right
+{
+	text-align:right;
+}
+	ul
+{
+	margin:0px !important;
+}
+
+	.spacer
+{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+	.trans
+{
+	background:rgba(0,0,0,0);
+}
+
+li
+{
+display:block;
+
+}
+	.headerstrip
+{
+	background:rgba(0,0,0,1);
+	color:#fff;
+	height:auto;
+}
+	.search
+{
+	width:200px;
+	padding-left: 10px;
+	color: #fff;
+	border-top:0px solid red;
+	border-left:0px solid red;
+	border-right:0px solid red;
+	border-bottom:1px solid white;
+	background-color:rgba(0,0,0,0);
+}
+
+input[type=text] {
+  -webkit-transition: width .35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+input[type=text]:focus {
+	outline:none;
+	width:100%;
+}
+
+.shadowed {
+    -webkit-filter: drop-shadow(0px 12px 5px rgba(0,0,0,0.5));
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+.header
+{
+	background:#fff;
+	color:#bbb;
+	z-index:9998;
+	box-shadow: 1px 1px 10px #333;
+	position: fixed;
+	width:100%;
+}
+
+.menu
+{
+	list-style-type:none;
+	text-transform:uppercase;
+}
+
+.menu li
+{
+	display:inline;
+	margin:0 1%;
+	line-height: 70px;
+	font-weight:700;
+    font-size: 14px;
+	font-family: 'Proxima Nova';
+
+}
+li
+{
+  transition: all 0.3s ease-in-out;
+
+}
+li:hover
+{
+	background:#fff;
+	cursor:pointer;
+	    text-decoration: line-through;
+    text-decoration: overline;
+
+}
+li:nth-child(2n+1) {
+  clear:left;
+}
+.menu
+{
+	display:none;
+}
+
+
+
+a
+{
+	text-decoration:none;
+	transition: all 0.2s linear;
+	color:brown ;
+}
+
+a:hover
+{
+	color:blue;
+	font-size:1.2em;
+	text-decoration: none;  
+}
+
+
+.slideshow
+{
+	position:relative;
+	height:0;
+	padding-bottom:60%;
+	
+}
+.slide
+{
+	position:absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+    background-size: cover;
+	background-position: center 0%;
+    background-repeat: no-repeat;
+	-webkit-filter:brightness(70%);
+	display:none;
+}
+.active
+{
+	display:block;
+	z-index:10;
+}
+.slide-1
+{
+
+}
+.slide-2
+{
+
+}
+.slide-3
+{
+
+}
+.slide-4
+{
+	
+}
+.chair
+{
+	position:absolute;
+	top: 50%;
+	z-index:20;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: url(front-chair.png)  center center/contain no-repeat;
+}
+.about
+{
+	padding:8% 0;
+}
+
+/* Small Devices, Tablets */
+@media (min-width : 768px) {
+
+
+
+}
+/* Medium Devices, Desktops */
+@media (min-width : 992px) {
+
+
+.ham
+{
+	display:none;
+}
+.menu
+{
+	display:block;
+}
+li:nth-child(3n+1) {
+  clear:left;
+}
+li:nth-child(2n+1) {
+  clear:none;
+}
+}
+
+/* Large Devices, Wide Screens */
+@media (min-width : 1200px) {
+
+}
+
+/* Very Large Devices, Wide Screens */
+@media  (min-width : 1600px) {
+
+}
+
+	</style>
+
+</head>
+
+<body>
+
+<div class="container-fluid ">
+<div class="row ">
+<div class="col-xs-6">ABCD</div>
+<div class="col-xs-6 ">
+<div class="slideshow">
+<div class="chair shadowed " >
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+</body>
+</html>

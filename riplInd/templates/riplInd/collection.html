@@ -1,0 +1,109 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}About Us{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/collection.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+<script src="{% static 'js/collection.js' %}"></script>
+{% endblock %}
+
+{% block head %} 
+<script>
+$( document ).ready(function() {
+$("").animate({width:'toggle'},1000);
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+function load_products(event){
+	var id = 0;
+	if(event.type=='click')
+	{
+		id = $(this).data("item-id");
+	}
+	else
+	{
+		id = {{id}};
+	}
+    $.ajax({
+	url: "itemfetch", 
+	data: {"id": id, csrfmiddlewaretoken: csrftoken},
+	type:"POST",
+	success: function(result){
+		$(".sublist").html(result);
+    }
+	});
+}
+
+$(".item").bind('click',{},load_products);
+$(document).bind('ready',{}, load_products);
+
+});
+</script>
+{% endblock %}
+
+<!--BODY-->	
+{% block body %} 
+	{% block tablist %}		<section id="tabs">
+    <div class="container-fluid">
+			<ul class="tablist">
+			<li class="col-xs-4"><a href="contact">CONTACT US</li>
+			<li class="col-xs-4"><a href="collection">COLLECTION</a></li>
+			<li class="col-xs-4"><a href="fabric">FABRIC GUIDE</a></li>
+			</ul>
+    </div>
+	</section> 
+	{% endblock %}
+<section id="collection">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">{{ index }}
+		<div class="col-xs-12">
+		<div class="slider center" id="colslider"> 
+		<ul id="collist" class="list">
+		{% for p in category %}
+		<li class="item" data-item-id="{{ p.id }}"><a href="#collist" data-scroll data-options='{
+                    "speed": 500,
+                    "easing": "easeInOutCubic",
+                    "offset": 150
+                }'><img src="{{ p.image.url }}" alt="{{ p.title }}"><p>{{ p.title }}</p></a></li>
+		{% endfor %}
+		</ul>
+
+		<div id="coldesc" class="sublist spacer-bottom">
+		</div>
+		</div>
+        </div>
+    </div>
+    </div>
+</section>
+<!--
+<section id="intro" class="spacer-both">
+    <div class="container" id="intro-wrap">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 spacer-bottom title center"><h4>{{ category.0.title }}</h4></div>
+            <div class="col-sm-10 col-sm-offset-1 center">
+                <p>{{ category.0.desc }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+-->
+{% endblock %}

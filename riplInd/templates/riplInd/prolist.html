@@ -1,0 +1,10 @@
+{% load staticfiles %}
+		<div class="viewport">
+		<ul id="flexilist" class="flexi">
+		<li class="featured"><img src="{{ fcategory.fimage.url }}"></li>
+		{% for k in items %}
+		<li><a href="product?id={{ k.id }}&model={{k.title|lower|cut:" "}}"><img src="{{ k.image.url }}" data-product-id="{{ k.id }}"> {{ k.title }} </a></li>
+		{% endfor %}
+		</ul>
+
+		</div>

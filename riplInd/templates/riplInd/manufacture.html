@@ -1,0 +1,183 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}The Making{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/make.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+<script src="{% static 'js/make.js' %}"></script>
+{% endblock %}
+
+{% block head %} 
+<script>
+$( document ).ready(function() {
+    var src = $('.video').parent(); //column
+    var vid = $(".video").get(0); //video object not video div
+    src.click(function () {
+    if(vid.paused){
+        $(".overlay").fadeIn(220);
+        setTimeout(function(){vid.play();}, 220);
+        src.children(".video").animate({opacity:1},200);
+        src.children(".playpause").fadeOut(200);
+    }else{
+        vid.pause();
+        $(".overlay").fadeOut(220);
+        src.children(".video").animate({opacity:0.4, scale:2},200);
+        src.children(".playpause").fadeIn(200);
+    }
+});
+    src.dblclick(function(){
+       if (vid.requestFullscreen) {
+      vid.requestFullscreen();
+    } else if (vid.mozRequestFullScreen) {
+      vid.mozRequestFullScreen();
+    } else if (vid.webkitRequestFullscreen) {
+      vid.webkitRequestFullscreen();
+    }
+    });
+
+    $(".slider-p").each(function(){
+    var child = $(this).children();
+    var length = child.length;
+    child.css("width", 100/length+"%");
+    $(this).css("width",length*100+"%");
+}
+);
+$("").animate({width:'toggle'},1000);
+
+});
+
+
+
+</script>
+{% endblock %}
+{% block covertext %}
+
+<div id="covertext">
+<div class="slottext" id="slot-1"></div>
+<h3><strong>DESIGN IS NOT AN ACCIDENT. IT'S <i>PURE ENGINEERING.</i></strong></h1></div>
+{% endblock %}
+<!--BODY-->
+{% block body %}
+	{% block tablist %}	<section id="tabs">
+    <div class="container-fluid">
+			<ul class="tablist">
+			<li class="col-xs-4"><a href="about">ABOUT US</li>
+			<li class="col-xs-4"><a href="make">MANUFACTURING</a></li>
+			<li class="col-xs-4"><a href="faq">FAQ</a></li>
+			</ul>
+    </div>
+	</section> 
+	{% endblock %}
+<section id="intro" class="spacer-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1 spacer-bottom title center"><h1>Manufacturing Process</h1></div>
+            <div class="col-sm-10 col-sm-offset-1 center">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            </div>
+        <div class="col-xs-4 col-sm-2 col-xs-offset-4 col-sm-offset-5">
+          <img src="{% static 'images/sign.png' %}" alt="">
+        </div>
+        </div>
+    </div>
+</section>
+
+<section id="anatomy">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="closed"><img src="{% static 'images/re-closed.jpg' %}">                
+             <div class="opened animate" data-anim-type="opacity"><img src="{% static 'images/re-opened.jpg' %}"></div></div>
+		</div>
+	</div>
+</section>
+
+<section id="video" class="spacer-both">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 center vid-wrap">
+                <video class="video" poster="{% static 'images/ab.jpg' %}">
+                <source src="{% static 'videos/make.mp4' %}" type="video/mp4">
+                Your browser does not support the video.
+                </video> 
+                <div class="playpause"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="spares" class="spacer-top">
+    <div class="container-fluid center">
+	<!-- <h3 class="title"><strong>Quality Spares</strong></h3>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></li> -->
+        <div class="row animate" data-anim-type="slideinleft">
+		<div class="col-xs-12">
+<div class="slider" id="scene">
+<ul id="prod-list" class="list">
+			           {% for row in spare %}
+<li>
+            <div class="col-md-6 spacer-bottom">
+			<h3>{{ row.spare_title }} </h3>
+            <p>{{ row.spare_desc }}</p>       
+            <a href="#popup{{ forloop.counter }}"> <img src="{{ row.v_image.url }}" width="200px" alt=""> </a>
+			</div>			
+            <div class="col-md-6 spacer-bottom">   
+                <div class="closed"><img src="{{ row.s_image.url }}">                
+            </div>
+        </div>
+</li>
+                        {% endfor %}
+</ul>
+</div>        
+</div>        
+</div>
+    </div>
+</section>
+
+<section id="process" class="spacer-both sawtooth">
+    <div class="container-fluid spare center">
+	<h3 class="title"><strong>Manufacturing Process</strong></h3>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></li>
+<div class="row flex-md"><div class="col-md-6"><img src="{% static 'images/make/marking.png' %}"></div><div class="col-md-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6 col-md-push-6"><img src="{% static 'images/make/foam cutting.png' %}"></div><div class="col-md-6 col-md-pull-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6"><img src="{% static 'images/make/mechanism assembly.png' %}"></div><div class="col-md-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6 col-md-push-6"><img src="{% static 'images/make/pizza cut.png' %}"></div><div class="col-md-6 col-md-pull-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6"><img src="{% static 'images/make/teanut punched.png' %}"></div><div class="col-md-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6 col-md-push-6"><img src="{% static 'images/make/wood cut closeup.png' %}"></div><div class="col-md-6 col-md-pull-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6"><img src="{% static 'images/make/wood slider.png' %}"></div><div class="col-md-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+
+<div class="row flex-md"><div class="col-md-6 col-md-push-6"><img src="{% static 'images/make/nosag assembly.png' %}"></div><div class="col-md-6 col-md-pull-6"><h3><strong>INCEPTION</strong></h3><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></div></div>
+    </div>
+</section>
+
+<section id="directors" class="spacer-both">
+	<div class="container-fluid center">
+		<h3 class="title"><strong>Audit Team</strong></h3>
+	<h6 class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text.</h6></li>
+		<div class="slider">
+		<ul id="boardlist" class="list">
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>AKHIL BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>NEERAJ BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>RICHA BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>AAYUSH BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>NEERAJ BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>NEERAJ BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>NEERAJ BANSAL</h6></li>
+		<li><img src="{% static 'images/scrap-img.png' %}"><h6>NEERAJ BANSAL</h6></li>
+		</ul>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

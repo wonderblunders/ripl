@@ -1,0 +1,106 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}Fabric Guide{% endblock %}{% block styles %}
+<link href="{% static 'css/fabric.css' %}" rel="stylesheet" type="text/css" >
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/fabric.js' %}"></script>
+
+<script>
+    $(document).ready(function() {
+	
+    });
+</script>
+{% endblock %}
+
+{% block covertext %}
+
+<div id="covertext">
+<div class="slottext" id="slot-1"></div>
+<h2>WHERE YOU SIT IS WHERE YOU <i>stand.</i></h1></div>
+{% endblock %}
+{% block body %}
+	{% block tablist %}		<section id="tabs">
+    <div class="container-fluid">
+			<ul class="tablist">
+			<li class="col-xs-4"><a href="contact">CONTACT US</li>
+			<li class="col-xs-4"><a href="collection">COLLECTION</a></li>
+			<li class="col-xs-4"><a href="fabric">FABRIC GUIDE</a></li>
+			</ul>
+    </div>
+	</section> 
+	{% endblock %}
+<section id="fabric" class="spacer-both">
+<div class="container">
+	<div class="row">
+	<div class="col-md-6 right"><img src="{% static 'images/molfinocut.jpg' %}"></div>
+	<div class="col-md-6"><h5>PREMIUM FABRIC</h5>
+	<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
+	<div class="faq-wrap center">
+		<div class="faq-item">
+		<div class="query">It's all about the <i>touch!</i><span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		This is answer no 1
+		</div>
+		</div>
+		<div class="faq-item">
+		<div class="query">Choice of premium fabric <i>only.</i><span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		This is answer no 2
+		</div>
+		</div>
+		<div class="faq-item">
+		<div class="query">No harming to nature for Business : <i>Eco-friendly.</i><span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		This is answer no 2
+		</div>
+		</div>
+	</div>
+	</div>
+	</div>	
+</div>
+</section>
+
+<section id="guide" class="spacer-bottom">
+<div class="container">
+	<div class="row">
+	<div class="col-md-6 col-md-push-6"><img src="{% static 'images/fabguide.jpg' %}"><p>Some good caption.</p></div>
+	<div class="col-md-6 col-md-pull-6"><h5>FEEL THIS LEATHER!</h5>
+		<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
+		<div class="faq-wrap center">
+		<div class="faq-item">
+		<div class="query">LEATHER<span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		This is answer no 1
+		</div>
+		</div>
+		<div class="faq-item">
+		<div class="query">LEATHERITE<span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		This is answer no 2
+		</div>
+		</div>
+		<div class="faq-item">
+		<div class="query">SUEDE<span class="toggle"><div class="togglewrap "><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		This is answer no 2
+		</div>
+		</div>
+	</div></div>
+	</div>
+</div>
+</section>	
+
+<section id="" class="spacer-bottom">
+<div class="container">
+	<div class="row">
+	<div class="col-md-6"><img src="{% static 'images/slide1.jpeg' %}"></div>
+	<div class="col-md-6"><h5>FEEL THIS LEATHER!</h5>
+		<p class="subtitle">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
+</div>
+	</div>
+</div>
+</section>	
+{% endblock %}

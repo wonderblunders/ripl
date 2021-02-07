@@ -1,0 +1,91 @@
+<!--
+     ;;;;;;;;RECLINERS;;;;;;;;
+     ;;;;;;;;;;INDIA;;;;;;;;;;
+     ;;;;;;;:;;;;;;;;;;;;;;;;;
+      _______________________
+     |                       |
+     |   BUSINESS WEBSITE.   |
+     |_______________________|
+     ;;;;;;;:;;;;;;;;;;;;;;;;;
+     ;;;;;;;:;;;;;;;;;;;;;;;;;
+     ;;;;;;;:;;;;;;;;;;;;;;;;;
+-->
+{% load staticfiles %}
+<html lang="en" class="loading">
+    
+<head>
+<title>{% block title %}{% endblock %} | Recliners India</title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE = edge">
+<meta name="viewport" content="width = device-width, initial-scale = 1">
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+
+<!--Master Styles and Scripts-->
+<link href="{% static 'css/grid12.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" >
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/style.js' %}"></script>
+<!--[if lt IE 9]>
+      <script src = "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src = "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+<!--Conditional Styles-->
+
+
+<!--Specific styles-->
+{% block styles %}
+
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+
+{% endblock %}
+{% block head %} {% endblock %}
+</head>
+<body>
+<a href="#" data-scroll id="info" href="#">
+</a>
+
+<div class="container-fluid header animate" data-anim-type="header-after">
+<a href="index" id="logo"><img src="{% static 'images/newlogo-clr.png' %}" class="logo animate" data-anim-type="logo-after"></a>
+
+<div id="burger">
+<div href="index" id="logo"><img src="{% static 'images/burger.png' %}"></div>
+<div href="index" id="nav-icon2"></div>
+</div>
+<ul class="navbar animate" data-anim-type="navbar-after">
+<li><a href="{% url 'about' %}" class="grow">Company</a></li>
+<li><a href="{% url 'make' %}" class="grow">Manufacturing</a></li>
+<li><a href="{% url 'fabric' %}" class="grow">Fabric Guide</a></li>
+<li><a href="{% url 'collection' %}" class="grow">Collection</a></li>
+<li><a href="{% url 'project' %}" class="grow">Projects</a></li>
+<li><a href="{% url 'contact' %}" class="grow">Contact</a></li>
+</ul>
+</div>
+
+<!--
+    <div id="hs-1"></div>
+
+    <div id="hs-2"></div>
+-->
+
+<section id="cover">
+    <div class="container-fluid cover">
+{% block covertext %} {% endblock %}
+	</div>
+</section>
+    {% block body %}	{% block tablist %}
+	{% endblock %}{% endblock %}
+<section id="footer" class="spacer-both">
+    <div class="container">
+        <div class="row center">
+© 2017 Recliners India Private Limited
+    </div>
+    </div>
+</section>
+
+</body>
+</html>

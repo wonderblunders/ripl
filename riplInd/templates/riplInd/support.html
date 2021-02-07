@@ -1,0 +1,225 @@
+{% extends 'riplInd/master.html' %}
+{% load staticfiles %}
+
+{% block title %}About Us{% endblock %}
+
+<!--Specific Styles-->
+{% block styles %}
+<link href="{% static 'css/support.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+<!--Specific Scripts-->
+{% block scripts %}
+<script src="{% static 'js/support.js' %}"></script>
+{% endblock %}
+
+{% block head %} 
+<script>
+$(document).ready(function() {
+$("").animate({width:'toggle'},1000);
+
+
+});
+</script>
+{% endblock %}
+
+<!--BODY-->	
+{% block body %} 
+	{% block tablist %}	<section id="tabs">
+    <div class="container-fluid">
+			<ul class="tablist">
+			<li class="col-xs-4"><a href="support">SERVICES</a></li>
+			<li class="col-xs-4"><a href="contact">CONTACT</a></li>
+			<li class="col-xs-4"><a href="faq">FAQ</a></li>
+			</ul>
+    </div>
+	</section> 
+	{% endblock %}
+			<div class="container-fluid center spacer-both" style="color:red;margin-top:20px"><h3>{{success}}</h3></div>
+
+<section class="spacer-both">
+    <div class="container">
+        <div class="row">
+
+		<div class="col-xs-12 center">
+		<div class="faq-wrap">
+		<div class="faq-item active"><div class="query">SERVICE REQUEST<span class="toggle"><div class="togglewrap rotate"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		<section id="contactform">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">
+		<div class="col-md-5 col-md-push-7">
+		<img src="{% static 'images/serial.png' %}" alt="">
+		</div>
+		<div class="col-md-7 col-md-pull-5 center">
+		<div class="row">
+		<form method="post" id="contact_form">{% csrf_token %}
+		<div class="col-xs-6">{{ form.fname }}</div>
+		<div class="col-xs-6">{{ form.lname }}</div>
+		<div class="col-xs-12">{{ form.phone }}</div>
+		<div class="col-xs-12">{{ form.email }}</div>
+		<div class="col-md-6">{{ form.serial }}</div>
+		<div class="col-md-6 dropdown">
+		<select class="country" onChange="load_state()">
+		{% for c in countries %}
+		<option id="{{c.id}}">{{ c.name }}</option>
+		{% endfor %}
+		</select>
+		</div>
+		<div class="col-md-12">{{ form.message }}</div>
+        <input type="submit" class="btn btn-info" value="Submit Button">
+        </form>
+		</div>
+		</div>
+
+        </div>
+    </div>
+</section>
+
+		</div></div>
+		
+		<div class="faq-item"><div class="query">CHECK SERVICE STATUS<span class="toggle"><div class="togglewrap"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		<section id="contactform">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">
+		<div class="col-md-7 center">
+		<div class="row">
+		<form method="post">{% csrf_token %}
+		<div class="col-xs-12">
+		<select class="dropdown">
+		<option value="">Select reason to Contact</option>
+		<option>General Inquiry</option>
+		<option>Corporate Inquiry</option>
+		<option>Warranty and Services</option>
+		<option>Call Me Back</option>
+		<option></option>
+		</select>
+		</div>
+		<div class="col-xs-6">{{ form.fname }}</div>
+		<div class="col-xs-6">{{ form.lname }}</div>
+		<div class="col-xs-12">{{ form.phone }}</div>
+		<div class="col-xs-12">{{ form.email }}</div>
+		<div class="col-md-6">{{ form.serial }}</div>
+		<div class="col-md-6">		
+		<select class="dropdown">
+		<option value="" selected>Select Your City</option>
+		<option>Delhi</option>
+		<option>Amritsar</option>
+		<option></option>
+		<option></option>
+		<option></option>
+		</select>
+		</div>
+		<div class="col-md-12">{{ form.message }}</div>
+        <input type="submit" class="btn btn-info" value="Submit Button">
+        </form>
+		</div>
+		</div>
+		<div class="col-md-5">
+ <img src="{% static 'images/serial.png' %}" alt="">
+		</div>
+        </div>
+    </div>
+</section>
+
+		</div></div>
+				<div class="faq-item"><div class="query">AMC/WARRANTY REQUEST<span class="toggle"><div class="togglewrap"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		<section id="contactform">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">
+		<div class="col-md-7 center">
+		<div class="row">
+		<form method="post">{% csrf_token %}
+		<div class="col-xs-12">
+		<select class="dropdown">
+		<option value="">Select reason to Contact</option>
+		<option>General Inquiry</option>
+		<option>Corporate Inquiry</option>
+		<option>Warranty and Services</option>
+		<option>Call Me Back</option>
+		<option></option>
+		</select>
+		</div>
+		<div class="col-xs-6">{{ form.fname }}</div>
+		<div class="col-xs-6">{{ form.lname }}</div>
+		<div class="col-xs-12">{{ form.phone }}</div>
+		<div class="col-xs-12">{{ form.email }}</div>
+		<div class="col-md-6">{{ form.serial }}</div>
+		<div class="col-md-6">		
+		<select class="dropdown">
+		<option value="" selected>Select Your City</option>
+		<option>Delhi</option>
+		<option>Amritsar</option>
+		<option></option>
+		<option></option>
+		<option></option>
+		</select>
+		</div>
+		<div class="col-md-12">{{ form.message }}</div>
+        <input type="submit" class="btn btn-info" value="Submit Button">
+        </form>
+		</div>
+		</div>
+		<div class="col-md-5">
+ <img src="{% static 'images/serial.png' %}" alt="">
+		</div>
+        </div>
+    </div>
+</section>
+
+		</div></div>
+				<div class="faq-item"><div class="query">AMC/WARRANTY STATUS<span class="toggle"><div class="togglewrap"><span class="before"></span><span class="after"></span></span></div></div>
+		<div class="answer">
+		<section id="contactform">
+    <div class="container-fluid" class="spacer-both">
+        <div class="row">
+		<div class="col-md-7 center">
+		<div class="row">
+		<form method="post">{% csrf_token %}
+		<div class="col-xs-12">
+		<select class="dropdown">
+		<option value="">Select reason to Contact</option>
+		<option>General Inquiry</option>
+		<option>Corporate Inquiry</option>
+		<option>Warranty and Services</option>
+		<option>Call Me Back</option>
+		<option></option>
+		</select>
+		</div>
+		<div class="col-xs-6">{{ form.fname }}</div>
+		<div class="col-xs-6">{{ form.lname }}</div>
+		<div class="col-xs-12">{{ form.phone }}</div>
+		<div class="col-xs-12">{{ form.email }}</div>
+		<div class="col-md-6">{{ form.serial }}</div>
+		<div class="col-md-6">		
+		<select class="dropdown">
+		<option value="" selected>Select Your City</option>
+		<option>Delhi</option>
+		<option>Amritsar</option>
+		<option></option>
+		<option></option>
+		<option></option>
+		</select>
+		</div>
+		<div class="col-md-12">{{ form.message }}</div>
+        <input type="submit" class="btn btn-info" value="Submit Button">
+        </form>
+		</div>
+		</div>
+		<div class="col-md-5">
+ <img src="{% static 'images/serial.png' %}" alt="">
+		</div>
+        </div>
+    </div>
+</section>
+
+		</div></div>
+		</div>
+		</div>
+		</div>
+		</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/jquery.min.js"></script>
+
+<script>
+
+$( window ).resize(function() {
+
+newPad = $(".resize").css('padding-left').replace("px", "")-8;
+  $( ".resize" ).css( 'padding', '0 '+newPad+"px" );
+});
+$(document).ready(function(){
+var arr = [1, 2, 3, 4];
+function setId()
+{
+for (var i=0; i < arr.length; i++)
+{
+
+if (arr[i]!=4)
+{
+arr[i] += 1;
+
+}
+else
+{
+arr[i]=1;
+}
+}
+}
+setInterval(function(){
+
+setId();
+
+$("#a").attr('class', '').addClass("child-"+arr[0]);
+$("#b").attr('class', '').addClass("child-"+arr[1]);
+$("#c").attr('class', '').addClass("child-"+arr[2]);
+$("#d").attr('class', '').addClass("child-"+arr[3]);
+}, 3000);
+});
+var scrolled, flag=0;
+	$(window).scroll(function() {
+	scrolled = $(window).scrollTop();
+	$(".header").show();
+setTimeout(function(){
+$(".header").slideUp(300);
+}, 2000);
+ $(".parallax").css('background-position',"100% "+(-scrolled/2)+"px");
+
+});
+
+/*
+var i=0;
+window.setInterval(function(){
+var current = $(".thumbnail img:eq("+i+")").addClass("p-active",3000);
+i++;
+},3000);
+*/
+
+</script>
+
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Open+Sans|Source+Sans+Pro';
+
+*
+{
+box-sizing:border-box;
+padding:0;
+margin:0;
+-webkit-font-smoothing: subpixel-antialiased;
+}
+body
+{
+margin:0;
+}
+html
+{
+font-size:14px; 
+font-family: 'Source Sans Pro', "Gotham Rounded A", "Gotham Rounded B", Helvetica, Arial, sans-serif;
+}
+
+.pagewrap
+{
+width:100%;
+margin:0 auto;
+background:url(page-bg.png);
+}
+.header
+{
+height:70px;
+position:fixed;
+top:0;
+background:#fff;
+width:100%;
+z-index:9999;
+}
+.header-shadow
+{
+ -webkit-box-shadow: 0px 3px 5px rgba(100, 100, 100, 0.49);
+ -moz-box-shadow:    0px 3px 5px rgba(100, 100, 100, 0.49);
+ box-shadow:         0px 1px 0px rgba(100, 100, 100, 0.49);
+ background:rgba(255,255,255,1);
+}
+
+.nav
+{
+text-transform:uppercase;
+list-style-type:none;
+margin: 0 auto;
+width:80%;
+height:70px;
+text-align:center;
+}
+.nav li
+{
+display:inline;
+margin:0 1%;
+   line-height: 70px;
+}
+.resize
+{
+padding:0 25px;
+transition: all 0.2s linear;
+}
+.parallax
+{
+overflow:hidden;
+width:100%;
+cursor: -webkit-grab; cursor: -moz-grab;
+}
+.parallax-1
+{
+position:relative;
+width:25%;
+float:left;
+text-align:center;
+margin:40px auto;
+
+}
+.about
+{
+background:#E7F3FF;
+}
+
+.clearfix
+{
+clear:both;
+}
+.abs1
+{
+width:100%;
+height:auto;
+animation: thump  1s linear;
+-webkit-animation-play-state:running;<!-- paused -->
+}
+
+@keyframes thump
+{
+0%
+{
+
+transform: perspective(500px) translateZ(500px);
+}
+0%
+{
+opacity:0;
+}
+20%
+{
+opacity:1;
+}
+100%
+{
+
+ transform: perspective(500px) translateZ(0px);
+}
+}
+.img
+{
+position:relative;
+ line-height: 0;
+}
+.abs
+{
+
+width:35%;
+height:auto;
+}
+
+.child
+{
+animation: accu 2s linear forwards;
+position:absolute;
+width:10%;
+height:auto;
+margin:auto;
+}
+@keyframes accu
+{
+from
+{
+top:0%;
+left:0%;
+}
+to
+{
+top: 0; left: 0; bottom: 0; right: 0; 
+}
+}
+[class*="child-"]
+{
+position:absolute;
+transition: all 1s linear;
+}
+.child-1
+{
+bottom:0%;
+left:50%;
+}
+.child-2
+{
+bottom:25%;
+left:75%;
+}
+.child-3
+{
+bottom:50%;
+left:50%;
+}
+.child-4
+{
+bottom:25%;
+left:25%;
+}
+
+
+/* Very Large Devices, Wide Screens */
+@media only screen and (max-width : 1600px) {
+
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+html
+{
+font-size:12px;
+}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+
+}
+
+</style>
+
+</head>
+<body>
+<div class="header header-shadow">
+
+<ul class="nav">
+<li>About Us</li>
+<li>Our Projects</li>
+<li>Our Products</li>
+<li>Support</li>
+<li></li>
+</ul>
+</div>
+<div class="pagewrap">
+
+<div class="parallax resize">
+<div class="img">
+<img src="test.jpg" class="abs1">
+<img src="ab.jpg" class="child">
+
+</div>
+</div>
+<div class="about">
+<div class="parallax-1 resize">
+<img src="set-up.png" class="abs">
+<p class="resize">Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi.</p>
+</div>
+<div class="parallax-1 resize">
+<img src="reporting.png" class="abs">
+<p class="resize">Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi.</p>
+</div>
+<div class="parallax-1 resize">
+<img src="optimization.png" class="abs">
+<p class="resize">Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi.</p>
+</div>
+<div class="parallax-1 resize">
+<img src="reporting.png" class="abs">
+<p class="resize">Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi. Dhik chik chik dhik dhik chik.Aisi ki taisi.</p>
+</div>
+
+<div class="clearfix">
+</div>
+</div>
+</div>
+
+</body>
+</html>                                		
