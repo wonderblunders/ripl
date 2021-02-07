@@ -10,10 +10,10 @@ class countries(models.Model):
 	code = models.CharField(max_length=6)
 class states(models.Model):
 	name = models.CharField(max_length=60)
-	country = models.ForeignKey('countries')
+	country = models.ForeignKey('countries', on_delete=models.DO_NOTHING)
 class cities(models.Model):
 	name = models.CharField(max_length=60)
-	state = models.ForeignKey('states')
+	state = models.ForeignKey('states', on_delete=models.DO_NOTHING)
 class product(models.Model):
 	title = models.CharField(max_length=45)
 	desc = models.CharField(max_length=1000)
@@ -117,8 +117,8 @@ class spares(models.Model):
 		return str("{1} {0}".format(self.spare_title,self.vendor_title))
 
 class pro_uph_options(models.Model):
-	product = models.ForeignKey('product')
-	material = models.ForeignKey('material')
+	product = models.ForeignKey('product', on_delete=models.DO_NOTHING)
+	material = models.ForeignKey('material', on_delete=models.DO_NOTHING)
 
 class contact(models.Model):
 	fname =  models.CharField(max_length=45)
@@ -158,7 +158,7 @@ class faqcategory(models.Model):
 		return self.category
 
 class gfaq(models.Model):
-	category = models.ForeignKey('faqcategory')
+	category = models.ForeignKey('faqcategory', on_delete=models.DO_NOTHING)
 	query = models.CharField(max_length=45)
 	answer = models.CharField(max_length=450)
 	def __unicode__(self):
