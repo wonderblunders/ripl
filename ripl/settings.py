@@ -82,10 +82,10 @@ DATABASES = {'default': dj_database_url.config()}
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'riplInd',
+        'NAME': 'Mysql-1',
         'USER': 'root',
-        'PASSWORD': '123',
-        'HOST': '127.0.0.1',   # Or an IP Address that your DB is hosted on
+        'PASSWORD': 'vrR]73A];rzSh&d.mo5W{WrdNOTvB,)s',
+        'HOST': 'ls-2b0346dbd512f9a18384ab072c98d86d5caa19d2.cisyfoxayahi.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }

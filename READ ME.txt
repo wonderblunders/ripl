@@ -1,0 +1,1 @@
+FOR CLOUD USE -> sudo apt-get install python-mysqldb (Linux Ubuntu, ...) as on Windows you can use mysql-python wheel but not on linux online.
