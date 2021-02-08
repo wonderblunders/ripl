@@ -82,7 +82,7 @@ DATABASES = {'default': dj_database_url.config()}
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'Mysql-1',
+        'NAME': 'ripl',
         'USER': 'dbmasteruser',
         'PASSWORD': 'wknminglok88',
         'HOST': 'ls-2b0346dbd512f9a18384ab072c98d86d5caa19d2.cisyfoxayahi.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
