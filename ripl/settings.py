@@ -29,7 +29,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 DEBUG = True
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.126.239.17']
 EMAIL_HOST_USER='yogibabanet@gmail.com'
 EMAIL_HOST_PASSWORD= '@yogibabanet'
 # Application definition
