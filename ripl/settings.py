@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'ripl',
         'USER': 'dbmasteruser',
         'PASSWORD': 'wknminglok88',
-        'HOST': 'ls-2b0346dbd512f9a18384ab072c98d86d5caa19d2.cisyfoxayahi.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
+        'HOST': 'ls-09d3d33606436a1cdf11c4d9ba070c8907067978.cisyfoxayahi.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
