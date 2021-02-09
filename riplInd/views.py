@@ -1,7 +1,6 @@
 import os
 import json
 from django.shortcuts import render, HttpResponse
-from django.shortcuts import render_to_response
 from .forms import f_callme, f_subscribe, f_email, f_product, f_contact, f_servicing
 from django.core.mail import send_mail
 from .models import product, material, category, spares, category_index_thumbs, gfaq, callme, subscribe, countries, states, cities, contact
