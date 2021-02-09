@@ -2,7 +2,7 @@ import os
 import json
 from django.shortcuts import render, HttpResponse
 from django.shortcuts import render_to_response
-from forms import f_callme, f_subscribe, f_email, f_product, f_contact, f_servicing
+from .forms import f_callme, f_subscribe, f_email, f_product, f_contact, f_servicing
 from django.core.mail import send_mail
 from .models import product, material, category, spares, category_index_thumbs, gfaq, callme, subscribe, countries, states, cities, contact
 from openpyxl import load_workbook
@@ -53,10 +53,10 @@ def v_callme(request):
 			return render(request,  'riplInd/response.html', {'success':e.message})
 	else:
 		form = f_callme()
-		return render_to_response('riplInd/index.html', {'title':'Send E-mail','form': form, 'success':'it failed :('})
+		return render(request, 'riplInd/index.html', {'title':'Send E-mail','form': form, 'success':'it failed :('})
 		
 def v_about(request):
-		return render_to_response('riplInd/about.html', {})
+		return render(request, 'riplInd/about.html', {})
 def v_product(request):
 	if request.GET.get('id') > 1:
 		id = id=request.GET.get('id')
@@ -65,7 +65,7 @@ def v_product(request):
 	lo = product.objects.get(id=id)
 	return render(request, 'riplInd/product.html', {'product':lo})
 def v_project(request):
-		return render_to_response('riplInd/project.html', {})
+		return render(request, 'riplInd/project.html', {})
 def v_contact(request):
 	country = countries.objects.all()
 	if request.method == "POST":
@@ -139,7 +139,7 @@ def v_make(request):
 		wb = load_workbook(filename=file_path, read_only=True)
 		rows = wb['Sheet1'].iter_rows()'''
 		spare = spares.objects.all()
-		return render_to_response('riplInd/manufacture.html', {'spare':spare})
+		return render(request, 'riplInd/manufacture.html', {'spare':spare})
 def v_collection(request):
 	if request.GET.get('id')>1:
 		id = request.GET.get('id')

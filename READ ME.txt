@@ -1,1 +1,17 @@
 FOR CLOUD USE -> sudo apt-get install python-mysqldb (Linux Ubuntu, ...) as on Windows you can use mysql-python wheel but not on linux online.
+
+OR TRY sudo yum install MySQL-python
+
+
+easy_install mysql-python (mix os)
+pip install mysql-python (mix os/ python 2)
+pip install mysqlclient (mix os/ python 3)
+apt-get install python-mysqldb (Linux Ubuntu, ...)
+cd /usr/ports/databases/py-MySQLdb && make install clean (FreeBSD)
+yum install MySQL-python (Linux Fedora, CentOS ...)
+
+
+sudo apt-get install python3.6-dev 
+sudo apt-get install mysql-client
+sudo apt-get install libsqlclient-dev
+sudo apt-get install libssl-dev

@@ -29,7 +29,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 DEBUG = True
-ALLOWED_HOSTS = ['13.126.239.17']
+ALLOWED_HOSTS = ['*']
 EMAIL_HOST_USER='yogibabanet@gmail.com'
 EMAIL_HOST_PASSWORD= '@yogibabanet'
 # Application definition
@@ -50,10 +50,10 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+MIDDLEWARE = MIDDLEWARE_CLASSES
 
 ROOT_URLCONF = 'ripl.urls'
 
@@ -85,7 +85,7 @@ DATABASES = {
         'NAME': 'dbripl',
         'USER': 'admin',
         'PASSWORD': 'wknminglok88',
-        'HOST': 'ls-9f2aa7176d2f691a0679b39adc9df9475fab599d.cisyfoxayahi.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
+        'HOST': 'upendra.camtyzmruseg.ap-south-1.rds.amazonaws.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
