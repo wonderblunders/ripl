@@ -1,0 +1,25 @@
+$(window).ready(function()
+{
+	$("#acclist").slider({
+	min:1,
+	max:12,
+	width:250,
+	margin:20,
+	mode:1
+});
+$("#matlist").slider({
+	min:1,
+	max:5,
+	width:120,
+	margin:10,
+	mode:2
+});
+$("#matproslides").slider({
+	min:1,
+	max:5,
+	width:120,
+	margin:10,
+	mode:0
+});
+	$("#fnlist").normalize;
+});

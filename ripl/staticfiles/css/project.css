@@ -1,0 +1,60 @@
+#cover
+{
+    background-image:url(../images/test.jpeg);
+	height:80%;
+}
+#site
+{
+	background:#f2f2f2;
+}
+#clientslider > .tie
+{
+	position:relative;
+	margin:20px 0;
+}
+
+.accwrap > img
+{
+	width:250px;
+	height:250px;
+}
+
+.fbshare
+{
+	position:fixed;
+	z-index:9999;
+	bottom:50px;
+	right:60px;
+}
+ #intro
+{
+	background-color:#f2f2f2;
+}
+		.guestimg
+		{
+			width:150px;
+			height:150px;
+			border-radius:50%;
+			box-shadow: 0 3px 6px rgba(0,0,0,.7);
+			margin-bottom:20px;
+		}
+#clientlist> li
+{
+	transform:scale(0.8);
+}
+#clientlist> li.active
+{
+	transform:scale(1);
+}
+#sitelist > li
+{
+	transform:scale(0.8);
+}
+#sitelist > li.active
+{
+	transform:scale(1);
+}
+.accwrap
+{
+	border:1px solid black;
+}
